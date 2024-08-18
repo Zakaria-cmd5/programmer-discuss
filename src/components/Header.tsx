@@ -1,5 +1,7 @@
 import { auth } from "@/auth";
 import {
+  Avatar,
+  Button,
   Input,
   Navbar,
   NavbarBrand,
@@ -11,6 +13,26 @@ import Link from "next/link";
 const Header = async () => {
   const session = await auth();
 
+  let authContent: React.ReactNode;
+  if (session?.user) {
+    authContent = <Avatar src={session.user.image || ""} />;
+  } else {
+    authContent = (
+      <>
+        <NavbarItem>
+          <Button type="submit" color="secondary" variant="bordered">
+            Signin
+          </Button>
+        </NavbarItem>
+        <NavbarItem>
+          <Button type="submit" color="primary" variant="flat">
+            Signup
+          </Button>
+        </NavbarItem>
+      </>
+    );
+  }
+
   return (
     <Navbar className="shadow mb-6">
       <NavbarBrand>
@@ -20,14 +42,10 @@ const Header = async () => {
       </NavbarBrand>
       <NavbarContent justify="center">
         <NavbarItem>
-          <Input placeholder="Search"/>
+          <Input placeholder="Search" />
         </NavbarItem>
       </NavbarContent>
-      <NavbarContent justify="end">
-        <NavbarItem>
-          {session?.user ? <div>Signed In</div> : <div>Signed Out</div>}
-        </NavbarItem>
-      </NavbarContent>
+      <NavbarContent justify="end">{authContent}</NavbarContent>
     </Navbar>
   );
 };
