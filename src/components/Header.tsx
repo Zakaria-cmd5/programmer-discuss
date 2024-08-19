@@ -9,6 +9,7 @@ import {
   NavbarItem,
 } from "@nextui-org/react";
 import Link from "next/link";
+import * as actions from "@/actions";
 
 const Header = async () => {
   const session = await auth();
@@ -20,14 +21,18 @@ const Header = async () => {
     authContent = (
       <>
         <NavbarItem>
-          <Button type="submit" color="secondary" variant="bordered">
-            Signin
-          </Button>
+          <form action={actions.signIn}>
+            <Button type="submit" color="secondary" variant="bordered">
+              Signin
+            </Button>
+          </form>
         </NavbarItem>
         <NavbarItem>
-          <Button type="submit" color="primary" variant="flat">
-            Signup
-          </Button>
+          <form action={actions.signIn}>
+            <Button type="submit" color="primary" variant="flat">
+              Signup
+            </Button>
+          </form>
         </NavbarItem>
       </>
     );
