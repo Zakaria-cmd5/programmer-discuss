@@ -42,6 +42,11 @@ const PostCreateForm = () => {
               labelPlacement="outside"
               placeholder="Content"
             />
+            {formState.errors._form && (
+              <div className="p-2 bg-red-200 border border-red-400 rounded">
+                {formState.errors._form.join(", ")}
+              </div>
+            )}
             <FormButton>Submit</FormButton>
           </div>
         </form>
