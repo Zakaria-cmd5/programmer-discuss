@@ -10,7 +10,7 @@ import {
 } from "@nextui-org/react";
 import * as actions from "@/actions";
 import { useFormState } from "react-dom";
-import FormButton from "./FormButton";
+import FormButton from "@/components/FormButton";
 
 const TopicCreateForm = () => {
   const [formState, action] = useFormState(actions.createTopic, {
