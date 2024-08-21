@@ -12,10 +12,17 @@ import {
 import * as actions from "@/actions";
 import { useFormState } from "react-dom";
 
-const PostCreateForm = () => {
-  const [formState, action] = useFormState(actions.createPost, {
-    errors: {},
-  });
+interface Props {
+  slug: string;
+}
+
+const PostCreateForm = ({ slug }: Props) => {
+  const [formState, action] = useFormState(
+    actions.createPost.bind(null, slug),
+    {
+      errors: {},
+    }
+  );
 
   return (
     <Popover placement="left">

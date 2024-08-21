@@ -13,7 +13,7 @@ const TopicShowPage = ({ params }: Props) => {
         <h1 className="text-2xl font-bold mb-2">{params.slug}</h1>
       </div>
       <div>
-        <PostCreateForm />
+        <PostCreateForm slug={params.slug}/>
       </div>
     </div>
   );
