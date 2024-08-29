@@ -1,6 +1,7 @@
 import paths from "@/paths";
 import Link from "next/link";
 import PostShow from "../_components/PostShow";
+import CommentCreateForm from "../_components/CommentCreateForm";
 
 interface Props {
   params: {
@@ -18,6 +19,7 @@ const PostShowPage = ({ params }: Props) => {
         {"< "}Back to {slug}
       </Link>
       <PostShow postId={postId} />
+      <CommentCreateForm postId={postId}/>
     </div>
   );
 };
