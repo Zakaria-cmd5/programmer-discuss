@@ -4,6 +4,7 @@ import { Suspense } from "react";
 import CommentCreateForm from "../_components/CommentCreateForm";
 import CommentList from "../_components/CommentList";
 import PostShow from "../_components/PostShow";
+import PostShowLoading from "../_components/PostShowLoading";
 
 interface Props {
   params: {
@@ -20,7 +21,7 @@ const PostShowPage = ({ params }: Props) => {
       <Link className="underline decoration-solid" href={paths.topicShow(slug)}>
         {"< "}Back to {slug}
       </Link>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<PostShowLoading />}>
         <PostShow postId={postId} />
       </Suspense>
       <CommentCreateForm postId={postId} />
