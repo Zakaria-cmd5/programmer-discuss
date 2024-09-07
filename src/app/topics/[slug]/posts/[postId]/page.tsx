@@ -1,9 +1,8 @@
 import paths from "@/paths";
 import Link from "next/link";
-import PostShow from "../_components/PostShow";
 import CommentCreateForm from "../_components/CommentCreateForm";
 import CommentList from "../_components/CommentList";
-import { fetchCommentsByPostId } from "@/db/queries/comments";
+import PostShow from "../_components/PostShow";
 
 interface Props {
   params: {
@@ -22,7 +21,7 @@ const PostShowPage = ({ params }: Props) => {
       </Link>
       <PostShow postId={postId} />
       <CommentCreateForm postId={postId} />
-      <CommentList fetchData={() => fetchCommentsByPostId(postId)} />
+      <CommentList postId={postId} />
     </div>
   );
 };
