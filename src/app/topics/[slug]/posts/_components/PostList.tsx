@@ -1,9 +1,9 @@
-import { PostWithDate } from "@/db/queries/posts";
+import { PostWithData } from "@/db/queries/posts";
 import paths from "@/paths";
 import Link from "next/link";
 
 interface Props {
-  fetchData: () => Promise<PostWithDate[]>;
+  fetchData: () => Promise<PostWithData[]>;
 }
 
 const PostList = async ({ fetchData }: Props) => {
