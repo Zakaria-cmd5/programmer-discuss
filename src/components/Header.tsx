@@ -1,12 +1,12 @@
 import {
-  Input,
   Navbar,
   NavbarBrand,
   NavbarContent,
-  NavbarItem
+  NavbarItem,
 } from "@nextui-org/react";
 import Link from "next/link";
 import AuthHeader from "./AuthHeader";
+import SearchInput from "./SearchInput";
 
 const Header = () => {
   return (
@@ -18,7 +18,7 @@ const Header = () => {
       </NavbarBrand>
       <NavbarContent justify="center">
         <NavbarItem>
-          <Input placeholder="Search" />
+          <SearchInput />
         </NavbarItem>
       </NavbarContent>
       <NavbarContent justify="end">
