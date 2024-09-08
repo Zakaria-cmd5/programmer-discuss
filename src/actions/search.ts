@@ -7,5 +7,5 @@ export const search = async (formData: FormData) => {
 
   if (typeof term !== "string" || !term) redirect("/");
 
-  redirect(`/search?term${term}`);
+  redirect(`/search?term=${term}`);
 };

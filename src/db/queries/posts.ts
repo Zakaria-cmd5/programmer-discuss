@@ -7,6 +7,21 @@ export type PostWithData = Post & {
   _count: { comments: number };
 };
 
+export const fetchPostsBySearchTerm = (
+  term: string
+): Promise<PostWithData[]> => {
+  return db.post.findMany({
+    where: {
+      OR: [{ title: { contains: term } }, { content: { contains: term } }],
+    },
+    include: {
+      topic: { select: { slug: true } },
+      user: { select: { name: true } },
+      _count: { select: { comments: true } },
+    },
+  });
+};
+
 export const fetchPostsByTopicSlug = (
   slug: string
 ): Promise<PostWithData[]> => {
